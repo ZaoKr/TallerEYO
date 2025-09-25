@@ -18,52 +18,62 @@ namespace TallerEYO.Forms
         /// </summary>
         public FormRegistrarAuto()
         {
-            
             InitializeComponent();
-            //inicializa las columnas de la lista 
+
+            // inicializa las columnas de la lista
             dataGridView1.Columns.Add("Marca", "Marca");
             dataGridView1.Columns.Add("Modelo", "Modelo");
-            dataGridView1.Columns.Add("Anio", "año");
-            actualizar();
-            
-            foreach(string marca in Program.Marcas)
+            dataGridView1.Columns.Add("Anio", "año"); // columna para año
+
+            actualizar(); // carga los datos actuales
+
+            // carga marcas en el comboBox
+            foreach (string marca in Program.Marcas)
             {
                 comboBoxMarca.Items.Add(marca);
             }
-            comboBoxMarca.SelectedIndex = 0;
+
+            comboBoxMarca.SelectedIndex = 0; // selecciona la primera marca
         }
+
         /// <summary>
         /// actualiza los datos del DataGrid
         /// </summary>
         private void actualizar()
         {
-            dataGridView1.Rows.Clear();
-            foreach(Auto objAuto in Program.Autos)
+            dataGridView1.Rows.Clear(); // limpia la tabla
+
+            // agrega cada auto a la tabla
+            foreach (Auto objAuto in Program.Autos)
             {
-                dataGridView1.Rows.Add(objAuto.Marca,objAuto.Modelo,objAuto.Anio);
+                dataGridView1.Rows.Add(objAuto.Marca, objAuto.Modelo, objAuto.Anio);
             }
         }
+
         /// <summary>
         /// funcion para validar los datos antes de crear el auto
         /// </summary>
         /// <returns>retorna verdadero si los datos son validos</returns>
-        private bool validar() 
+        private bool validar()
         {
-            //valida que haya texto , valida numero y que el año este en un rango de 1880 hasta 2026
+            // valida que haya texto, valida numero y que el año este en un rango de 1880 hasta 2026
             // valida que no haya un auto igual ya creado
-            bool Valido = true;// si no toca ningun "valido = false" entonces los daros son validos
+
+            bool Valido = true; // si no se marca como falso, los datos son validos
+
             if (textBoxModelo.Text.Length <= 1) // si hay menos de 2 caracteres no es valido
-            { 
+            {
                 Valido = false;
             }
-            else if(!int.TryParse(textBoxAnio.Text, out int n))//si es numero
+            else if (!int.TryParse(textBoxAnio.Text, out int n)) // si no es numero
             {
                 Valido = false;
             }
             else
             {
                 int anioIN = int.Parse(textBoxAnio.Text);
-                if (anioIN > 2026 || anioIN < 1880)// si el año comprende un rango valido
+
+                if (anioIN > 2026 || anioIN < 1880) // año fuera de rango
                 {
                     Valido = false;
                 }
@@ -72,34 +82,39 @@ namespace TallerEYO.Forms
                     // recorre todos los autos para encontrar uno escatamente igual
                     foreach (Auto objAuto in Program.Autos)
                     {
-                        if (comboBoxMarca.SelectedItem.ToString() == objAuto.Marca && textBoxModelo.Text == objAuto.Modelo && textBoxAnio.Text == objAuto.Anio.ToString())
+                        if (comboBoxMarca.SelectedItem.ToString() == objAuto.Marca &&
+                            textBoxModelo.Text == objAuto.Modelo &&
+                            textBoxAnio.Text == objAuto.Anio.ToString())
                         {
-                            //se encontro mismo auto 
+                            // se encontro mismo auto
                             Valido = false;
                             break;
                         }
                     }
                 }
             }
+
             return Valido;
         }
+
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            if (validar())
+            if (validar()) // si los datos son validos
             {
-                Auto auto = new Auto(comboBoxMarca.SelectedItem.ToString(),textBoxModelo.Text,int.Parse(textBoxAnio.Text));
+                // crear nuevo auto y agregarlo
+                Auto auto = new Auto(comboBoxMarca.SelectedItem.ToString(), textBoxModelo.Text, int.Parse(textBoxAnio.Text));
                 Program.Autos.Add(auto);
-                actualizar();
+                actualizar(); // refrescar tabla
             }
             else
             {
-                MessageBox.Show("Datos no validos o Duplicado");
+                MessageBox.Show("Datos no validos o Duplicado"); // mostrar error
             }
         }
 
         private void FormRegistrarAuto_Load(object sender, EventArgs e)
         {
-
+            // evento vacio, no hace nada
         }
     }
 }
