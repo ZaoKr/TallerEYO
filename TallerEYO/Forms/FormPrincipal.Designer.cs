@@ -102,13 +102,13 @@
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.modificarToolStripMenuItem.Text = "Modificar";
-            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // piezaToolStripMenuItem1
             // 
             this.piezaToolStripMenuItem1.Name = "piezaToolStripMenuItem1";
-            this.piezaToolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
+            this.piezaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.piezaToolStripMenuItem1.Text = "Pieza";
+            this.piezaToolStripMenuItem1.Click += new System.EventHandler(this.modificarPiezaToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
@@ -122,7 +122,7 @@
             // piezaToolStripMenuItem2
             // 
             this.piezaToolStripMenuItem2.Name = "piezaToolStripMenuItem2";
-            this.piezaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.piezaToolStripMenuItem2.Size = new System.Drawing.Size(101, 22);
             this.piezaToolStripMenuItem2.Text = "Pieza";
             this.piezaToolStripMenuItem2.Click += new System.EventHandler(this.piezaToolStripMenuItem2_Click);
             // 

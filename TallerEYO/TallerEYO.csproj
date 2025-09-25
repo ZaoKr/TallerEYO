@@ -58,6 +58,12 @@
     <Compile Include="Forms\ComprarPieza.Designer.cs">
       <DependentUpon>ComprarPieza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormModificarPieza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormModificarPieza.Designer.cs">
+      <DependentUpon>FormModificarPieza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\ComprarPieza.resx">
       <DependentUpon>ComprarPieza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormModificarPieza.resx">
+      <DependentUpon>FormModificarPieza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>

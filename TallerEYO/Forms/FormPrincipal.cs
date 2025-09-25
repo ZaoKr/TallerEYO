@@ -55,11 +55,44 @@ namespace TallerEYO.Forms
             Actualizar();
         }
 
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el menu Modificar Pieza
+        /// </summary>
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en Modificar pieza
+        /// </summary>
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el menu Modificar Pieza
+        /// </summary>
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en Modificar pieza desde el menu
+        /// </summary>
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en Modificar pieza desde el menu
+        /// </summary>
+        private void modificarPiezaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-        }
+            // Verifica que haya una fila seleccionada en el DataGridView
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Obtiene el indice de la fila seleccionada
+                int index = dataGridView1.SelectedRows[0].Index;
 
+                // Obtiene la pieza correspondiente desde la lista global
+                Pieza piezaSeleccionada = Program.Piezas[index];
+
+                // Abre el formulario de modificacion con la pieza seleccionada
+                FormModificarPieza formModificar = new FormModificarPieza(piezaSeleccionada);
+                formModificar.ShowDialog();
+
+                // Actualiza la vista del DataGridView
+                Actualizar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una pieza para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         private void piezaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             //YOYOYOYOYOYOYOYOYEQUISDE
