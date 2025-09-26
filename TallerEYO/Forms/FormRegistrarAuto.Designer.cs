@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBoxModelo = new System.Windows.Forms.TextBox();
             this.textBoxAnio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.comboBoxMarca = new System.Windows.Forms.ComboBox();
+            this.comboBoxModelo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,19 +50,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(414, 272);
             this.dataGridView1.TabIndex = 0;
             // 
-            // textBoxModelo
-            // 
-            this.textBoxModelo.Location = new System.Drawing.Point(41, 81);
-            this.textBoxModelo.Name = "textBoxModelo";
-            this.textBoxModelo.Size = new System.Drawing.Size(144, 20);
-            this.textBoxModelo.TabIndex = 2;
-            // 
             // textBoxAnio
             // 
             this.textBoxAnio.Location = new System.Drawing.Point(41, 120);
             this.textBoxAnio.Name = "textBoxAnio";
             this.textBoxAnio.Size = new System.Drawing.Size(144, 20);
             this.textBoxAnio.TabIndex = 3;
+            this.textBoxAnio.Text = "2010";
             // 
             // label1
             // 
@@ -93,9 +87,9 @@
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(76, 155);
+            this.buttonAgregar.Location = new System.Drawing.Point(64, 146);
             this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(80, 26);
+            this.buttonAgregar.Size = new System.Drawing.Size(93, 40);
             this.buttonAgregar.TabIndex = 7;
             this.buttonAgregar.Text = "Agregar";
             this.buttonAgregar.UseVisualStyleBackColor = true;
@@ -108,19 +102,28 @@
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(144, 21);
             this.comboBoxMarca.TabIndex = 8;
+            this.comboBoxMarca.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarca_SelectedIndexChanged);
+            // 
+            // comboBoxModelo
+            // 
+            this.comboBoxModelo.FormattingEnabled = true;
+            this.comboBoxModelo.Location = new System.Drawing.Point(41, 81);
+            this.comboBoxModelo.Name = "comboBoxModelo";
+            this.comboBoxModelo.Size = new System.Drawing.Size(144, 21);
+            this.comboBoxModelo.TabIndex = 9;
             // 
             // FormRegistrarAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 311);
+            this.Controls.Add(this.comboBoxModelo);
             this.Controls.Add(this.comboBoxMarca);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxAnio);
-            this.Controls.Add(this.textBoxModelo);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormRegistrarAuto";
             this.Text = "FormRegistrarAuto";
@@ -134,12 +137,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBoxModelo;
         private System.Windows.Forms.TextBox textBoxAnio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.ComboBox comboBoxMarca;
+        private System.Windows.Forms.ComboBox comboBoxModelo;
     }
 }

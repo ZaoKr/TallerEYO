@@ -15,7 +15,7 @@ namespace TallerEYO
     internal class Program
     {
         // Lista global de autos registrados
-        public static List<Auto> Autos = new List<Auto>();
+        public static List<Auto> Autos= new List<Auto>();
 
         // Lista global de piezas registradas
         public static List<Pieza> Piezas = new List<Pieza>();
@@ -26,15 +26,14 @@ namespace TallerEYO
         // Lista de tipos de pieza
         public static List<string> TipoPieza = new List<string>();
 
+        //Lista de marcamodelo
+        public static string[,] MarcaModelo = new string[1,1];
         /// <summary>
         /// Inicializa las marcas y tipos de pieza
         /// </summary>
         public static void iniciador()
         {
-            Marcas.Add("Toyota");
-            Marcas.Add("BMW");
-            Marcas.Add("Nissan");
-            Marcas.Add("JBL");
+           
 
             TipoPieza.Add("Sistema de motor");
             TipoPieza.Add("Sistema de frenos");

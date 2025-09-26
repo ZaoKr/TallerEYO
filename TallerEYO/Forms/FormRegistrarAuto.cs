@@ -28,9 +28,10 @@ namespace TallerEYO.Forms
             actualizar(); // carga los datos actuales
 
             // carga marcas en el comboBox
-            foreach (string marca in Program.Marcas)
+            var marcasyModels = Program.MarcaModelo;
+            for (int i = 0;i < marcasyModels.GetLength(1); i++)
             {
-                comboBoxMarca.Items.Add(marca);
+                comboBoxMarca.Items.Add(marcasyModels[0,i]);
             }
 
             comboBoxMarca.SelectedIndex = 0; // selecciona la primera marca
@@ -61,11 +62,8 @@ namespace TallerEYO.Forms
 
             bool Valido = true; // si no se marca como falso, los datos son validos
 
-            if (textBoxModelo.Text.Length <= 1) // si hay menos de 2 caracteres no es valido
-            {
-                Valido = false;
-            }
-            else if (!int.TryParse(textBoxAnio.Text, out int n)) // si no es numero
+            
+             if (!int.TryParse(textBoxAnio.Text, out int n)) // si no es numero
             {
                 Valido = false;
             }
@@ -83,7 +81,7 @@ namespace TallerEYO.Forms
                     foreach (Auto objAuto in Program.Autos)
                     {
                         if (comboBoxMarca.SelectedItem.ToString() == objAuto.Marca &&
-                            textBoxModelo.Text == objAuto.Modelo &&
+                            comboBoxModelo.SelectedItem.ToString() == objAuto.Modelo &&
                             textBoxAnio.Text == objAuto.Anio.ToString())
                         {
                             // se encontro mismo auto
@@ -102,7 +100,7 @@ namespace TallerEYO.Forms
             if (validar()) // si los datos son validos
             {
                 // crear nuevo auto y agregarlo
-                Auto auto = new Auto(comboBoxMarca.SelectedItem.ToString(), textBoxModelo.Text, int.Parse(textBoxAnio.Text));
+                Auto auto = new Auto(comboBoxMarca.SelectedItem.ToString(), comboBoxModelo.SelectedItem.ToString(), int.Parse(textBoxAnio.Text));
                 Program.Autos.Add(auto);
                 actualizar(); // refrescar tabla
             }
@@ -115,6 +113,20 @@ namespace TallerEYO.Forms
         private void FormRegistrarAuto_Load(object sender, EventArgs e)
         {
             // evento vacio, no hace nada
+        }
+
+        private void comboBoxMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //actualiza los modelos segun que marca se seleciono
+            var marcasyModels = Program.MarcaModelo;
+            int indMarca = comboBoxMarca.SelectedIndex;
+            comboBoxModelo.Items.Clear();
+            for (int i = 1; i < marcasyModels.GetLength(0); i++)
+            {
+                comboBoxModelo.Items.Add(marcasyModels[i,indMarca]);
+            }
+
+            comboBoxModelo.SelectedIndex = 0;
         }
     }
 }

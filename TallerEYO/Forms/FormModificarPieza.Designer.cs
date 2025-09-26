@@ -97,6 +97,7 @@
             this.Controls.Add(this.textBoxNombre);
             this.Name = "FormModificarPieza";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormModificarPieza_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

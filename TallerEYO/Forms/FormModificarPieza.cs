@@ -100,6 +100,7 @@ namespace TallerEYO.Forms
             foreach (Auto auto in checkedListBoxAutos.CheckedItems)
             {
                 piezaActual.AutosCompatible.Add(auto);
+                
             }
 
             MessageBox.Show("Pieza modificada con exito");
@@ -111,6 +112,11 @@ namespace TallerEYO.Forms
         /// </summary>
         private void FormModificarPieza_Load(object sender, EventArgs e)
         {
+        }
+
+        private void FormModificarPieza_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
